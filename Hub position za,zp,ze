@@ -1,0 +1,19 @@
+// Spectating someone else?
+	if (id != ID_SHOWHUD)
+	{
+		// Show hud stats you´re spectating
+		set_hudmessage(6.0, 1.1, 0.0, 0.0, -1)
+		ShowSyncHudMsg(ID_SHOWHUD, g_MsgSync2, "Acosando a =) B===Dja: %s^nVida: %i - Clase: %s - Ammo packs: %d^nNivel: %d - Rango: %s - EXP: %d", g_playername[id], get_user_health(id), class, g_ammopacks[id][0], g_level[id], RANGOS[g_rango[id]], g_experience[id])
+	}
+	else if (g_hud[id] == 0)
+	{
+		// Show your hud stats
+		set_hudmessage(g_hudred[id], g_hudgreen[id], g_hudblue[id], g_hud_stats_x[id], g_hud_stats_y[id], g_hud_stats_t[id], 6.0, 1.1, 0.0, 0.0, -1)
+		ShowSyncHudMsg(ID_SHOWHUD, g_MsgSync2, "Vida: %i - Clase: %s^nNivel: %d - Rango: %s^nAmmo packs: %d - nChaleco: %i", get_user_health(id), class, g_level[id], RANGOS[g_rango[id]], g_ammopacks[id][0], get_user_armor(id))
+	}
+	else if (g_hud[id] == 1)
+	{
+		set_hudmessage(g_hudred[id], g_hudgreen[id], g_hudblue[id], g_hud_stats_x[id], g_hud_stats_y[id], g_hud_stats_t[id], 6.0, 1.1, 0.0, 0.0, -1)
+		ShowSyncHudMsg(ID_SHOWHUD, g_MsgSync2, "Vida: %i - nClase: %s^nNivel: %d - nRango: %s^nAmmo packs: %d - Chaleco: %i", get_user_health(id), class, g_level[id], RANGOS[g_rango[id]], g_ammopacks[id][0], get_user_armor(id))
+	}
+}
